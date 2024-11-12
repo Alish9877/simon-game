@@ -1,0 +1,26 @@
+user story : 
+1- As a user , i need to see the flash from each color block before press it
+2- As a user , i need to feel the sound of each color 
+3- As a user , i need to show the score for each round , and the maximum score at all
+4- As a user , before the game , i need to press start button
+5- As a user , after the game , i need to press the start game if need play again , or quit if dont
+
+////////////////////////
+
+pseudo code -- simon game 
+
+presented variable = 	1- sequence of colors // empty array use it to store the sequence of color the computer use it 
+			2- colors array // the color that showen in the blocks ( red , yellow , blue , green )
+			3- activate value // value of starting the game , must ne false before start , once user click start , changed to true 
+			4- started score // the score before user start the game , its always zero since the game started 
+			5- usersequnce  // user input sequence , will use it to compare it with computer sequence 
+
+functions =   	1- start game ( change the activate value of game , user sequence , configure reset and level function )
+		2- generate new sequence ( choose randomly color from the array and return it as a new sequence )
+		3- present sequence ( foreach color highlight the color , delay between color and another 1 second , play sound )
+		4- player input ( if the player click , add the clicked color to usersequnce , check if the clicked matched with color )
+		5- check the input ( in usersequnce === sequence , player successfully complete the level , move to next level calling generatenewsequance ) ,,
+		else , wait the next input , if incorrect , end the game and display game offer message 
+		6- for each button , play sound when the sequence flashed , then if the sequence clicked  
+		7- also for each button , make flash effect 
+
