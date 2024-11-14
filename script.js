@@ -8,6 +8,11 @@ const startbutton = document.querySelector('.start-button')
 const quitbutton = document.querySelector('.quit-button')
 
 
+
+
+
+
+
 let sequncecolor = []
 let score = 0
 let isGameActive = false 
@@ -42,17 +47,54 @@ audio.play()
 }
 
 
+const flasheffect = (color) => {
+let button = document.querySelector('#color-button')
+if (color == '.red')
+  button.style.backgroundcolor = 'tomato'
+else if (color == '.blue')
+  button.style.backgroundcolor = 'lightskyblue'
+else if (color == '.yellow')
+  button.style.backgroundcolor = 'lightyellow'
+else if (color == '.green')
+  button.style.backgroundcolor = 'lightgreen'
 
-
+setTimeout(() => {
+  button.attributes.removeNamedItem('style')
+}, 300)
+}
 
 const presentsequnce = () => {
-  colorarray.forEach 
+  let i = 0
+  let interval = setInterval(()=>{
+    playaudio(sequncecolor[i])
+    flasheffect(sequncecolor[i])
+    i++
+    if (i >= sequncecolor.length) {
+      clearInterval(interval)
+    }
+  })
 
 }
 
+const checkinput = () => {
+let lastindex = sequncecolor.length - 1
+if (userSequnce[lastindex] != sequncecolor[lastindex])
+  endGame()
+else if 
+(userSequnce[lastindex] == sequncecolor[lastindex])
+score++
+}
+
+const endGame = () => {
+  isGameActive = false
+  alert('Game over!!')
+}
+
+const handleClick = (event) => { 
+
+}
 
 
 // cosnole.log(presentsequnce)
 
 startbutton.addEventListener('click' , startGame)
-
