@@ -1,100 +1,104 @@
-const colorarray = ['red' , 'blue' , 'yellow' , 'green' ]
+const colorArray = ['red', 'blue', 'yellow', 'green'];
 
-const redbutton = document.querySelector('.red')
-const bluebutton = document.querySelector('.blue')
-const yellowbutton = document.querySelector('.yellow')
-const greenbutton = document.querySelector('.green')
-const startbutton = document.querySelector('.start-button')
-const quitbutton = document.querySelector('.quit-button')
+const redButton = document.querySelector('.red');
+const blueButton = document.querySelector('.blue');
+const yellowButton = document.querySelector('.yellow');
+const greenButton = document.querySelector('.green');
+const startButton = document.querySelector('.start-button');
+const quitButton = document.querySelector('.quit-button');
 
+const statusms = document.querySelector('.status')
+const level = document.querySelector('.level')
 
-
-
-
-
-
-let sequncecolor = []
-let score = 0
-let isGameActive = false 
-let userSequnce 
-
+let sequenceColor = [];
+let score = 0;
+let isGameActive = false;
+let userSequence = [];
 
 const startGame = () => {
-  isGameActive = true 
-  userSequnce = []
-  sequncecolor = []
-  // resetGame()
-  levelScore()
-}
+  isGameActive = true;
+  userSequence = [];
+  sequenceColor = [];
+  score = 0;
+  levelScore();
+  presentSequence();
+};
 
 const levelScore = () => {
-  score++
-  userSequnce = []
-}
+  score++;
+  userSequence = [];
+  const color = colorArray[Math.floor(Math.random() * 4)];
+  sequenceColor.push(color);
+level.textContent = `level: ${score}`
+};
 
-// const newsq = () => {
-  const colorseq = () => {colorarrayMath.floor(Math.random() * 4) + 1;
-  sequncecolor.push(colorseq)
-  playaudio(color)
-  // console.log(colorseq)
+// const playaudio = (color) => {
+//   const realpath = sounds/`${colorArray}`.wav;
+//   const audio = new Audio(realpath);
+//   audio.play();
+// };
 
-}
+const flashEffect = (color) => {
+  const button = document.querySelector(`.${color}`);
+  button.style.backgroundColor = getFlashColor(color);
 
-const playaudio = (color) => {
-let realpath = `sounds/${color}.mp3`
-let audio = new audio(realpath)
-audio.play()
-}
+  setTimeout(() => {
+    button.style.backgroundColor = '';
+  }, 300);
+};
 
+const getFlashColor = (color) => {
+  const flashColors = {
+    red: 'tomato',
+    blue: 'lightskyblue',
+    yellow: 'lightyellow',
+    green: 'lightgreen',
+  };
+  return flashColors[color];
+};
 
-const flasheffect = (color) => {
-let button = document.querySelector('#color-button')
-if (color == '.red')
-  button.style.backgroundcolor = 'tomato'
-else if (color == '.blue')
-  button.style.backgroundcolor = 'lightskyblue'
-else if (color == '.yellow')
-  button.style.backgroundcolor = 'lightyellow'
-else if (color == '.green')
-  button.style.backgroundcolor = 'lightgreen'
-
-setTimeout(() => {
-  button.attributes.removeNamedItem('style')
-}, 300)
-}
-
-const presentsequnce = () => {
-  let i = 0
-  let interval = setInterval(()=>{
-    playaudio(sequncecolor[i])
-    flasheffect(sequncecolor[i])
-    i++
-    if (i >= sequncecolor.length) {
-      clearInterval(interval)
+const presentSequence = () => {
+  let i = 0;
+  const interval = setInterval(() => {
+    // playaudio(sequenceColor[i]);
+    flashEffect(sequenceColor[i]);
+    i++;
+    if (i >= sequenceColor.length) {
+      clearInterval(interval);
     }
-  })
+  }, 600);
+};
 
-}
 
 const checkinput = () => {
-let lastindex = sequncecolor.length - 1
-if (userSequnce[lastindex] != sequncecolor[lastindex])
-  endGame()
-else if 
-(userSequnce[lastindex] == sequncecolor[lastindex])
-score++
-}
+  const lastIndex = userSequence.length - 1;
+  if (userSequence[lastIndex] !== sequenceColor[lastIndex]) {
+     statusms.textContent = `Game Over! Your score: ${score}`
+    endGame();
+  } else if (userSequence.length === sequenceColor.length) {
+    levelScore();
+    setTimeout(presentSequence, 1000);
+  }
+};
+
+
+const handleClick = (event) => {
+  const color = event.target.classList[0];
+  if (isGameActive) {
+    userSequence.push(color);
+    // playaudio(color);
+    flashEffect(color);
+    checkinput();
+  }
+};
 
 const endGame = () => {
-  isGameActive = false
-  alert('Game over!!')
-}
+  isGameActive = false;
+  // alert(`Game Over! Your score: ${score}`);
+};
 
-const handleClick = (event) => { 
-
-}
-
-
-// cosnole.log(presentsequnce)
-
-startbutton.addEventListener('click' , startGame)
+redButton.addEventListener('click', handleClick);
+blueButton.addEventListener('click', handleClick);
+yellowButton.addEventListener('click', handleClick);
+greenButton.addEventListener('click', handleClick);
+startButton.addEventListener('click', startGame);

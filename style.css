@@ -51,10 +51,14 @@ body {
   align-items: center;
   height: 100vh;
   /* margin: 0; */
-  background-color: gray;
+  background-color: white;
   font-family: 'Balsamiq Sans', sans-serif;
 }
 
+.dark-mode {
+  background-color: black;
+  color: white;
+}
 
 
     /* body {
@@ -75,7 +79,7 @@ body {
 
     
     h1 {
-      color: black;
+      color: rgba(248, 0, 0, 0.973);
       /* margin-bottom: 20px; */
       text-align: center;
       margin-top: 20px;
