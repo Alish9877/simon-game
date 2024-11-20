@@ -61,7 +61,7 @@ body {
   align-items: center;
   height: 100vh;
   /* margin: 0; */
-  /* background-color: black; */
+  background-color: rgb(7, 0, 0);
   font-family: 'Balsamiq Sans', sans-serif;
 }
 
@@ -70,6 +70,10 @@ body {
   color: white;
 }
 
+
+[class*="col-"] {
+  width: 100%;
+}
 
     /* body {
       display: flex;

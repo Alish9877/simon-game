@@ -10,8 +10,8 @@ const statusms = document.querySelector('.status')
 const level = document.querySelector('.level')
 
 let sequenceColor = []
-let score = 0;
-let isGameActive = false;
+let score = 0
+let isGameActive = false
 let userSequence = []
 
 const startGame = () => {
