@@ -31,11 +31,6 @@ const levelScore = () => {
 level.textContent = `level: ${score}`
 }
 
-// const playaudio = (color) => {
-//   const realpath = `./sounds/${color}.mp3`
-//   const audio = new Audio(realpath)
-//   audio.play()
-// }
 
 const flashEffect = (color) => {
   const button = document.querySelector(`.${color}`)
@@ -59,7 +54,6 @@ const getFlashColor = (color) => {
 const presentSequence = () => {
   let i = 0
   const interval = setInterval(() => {
-    // playaudio(sequenceColor[i])
     flashEffect(sequenceColor[i])
     i++
     if (i >= sequenceColor.length) {
@@ -85,7 +79,6 @@ const handleClick = (event) => {
   const color = event.target.classList[0];
   if (isGameActive) {
     userSequence.push(color)
-    // playaudio(color)
     flashEffect(color)
     checkinput()
   }
@@ -93,7 +86,6 @@ const handleClick = (event) => {
 
 const endGame = () => {
   isGameActive = false
-  // alert(`Game Over! Your score: ${score}`)
 }
 
 redButton.addEventListener('click', handleClick)

@@ -1,59 +1,21 @@
 
 .red { 
-  /* width: 200px; */
-  /* height: 200px; */
-  /* display: block; */
   background-color: rgb(158, 0, 0);
-  /* position: relative; */
-  /* margin-left: 100px; */
-  /* margin-top: 100px; */
 }
 
 .blue { 
-  /* width: 200px; */
-  /* height: 200px; */
-  /* display: block; */
   background-color: rgb(0, 0, 102);
-  /* position: relative; */
-  /* margin-left: 300px; */
-  /* margin-bottom: 100px; */
 }
 
 .yellow { 
-  /* width: 200px; */
-  /* height: 200px; */
-  /* display: block; */
   background-color: rgb(255, 255, 0);
-  /* margin: auto; */
-  /* position: relative; */
-  /* margin:20px 0 20px 0; */
-  /* margin-bottom: 100px; */
-  /* margin-top: 100px; */
 }
 
 .green { 
-  /* width: 200px; */
-  /* height: 200px; */
-  /* display: block; */
   background-color: rgb(37, 122, 37);
-  /* margin: auto; */
-  /* text-align: right; */
-  /* position: relative; */
-  /* margin-right: 400px; */
-  /* margin-top: 400px; */
-
-  
 }
 
-/* Dark mode styles using media query */
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background-color: #333333;
-    --text-color: #ffffff;
-    --button-background: #555555;
-    --button-text-color: #ffffff;
-  }
-}
+
 
 body {
   display: flex;
@@ -61,7 +23,6 @@ body {
   align-items: center;
   justify-content: center;
   height: 100vh;
-  /* margin: 0; */
   background-color: var(--background-color);
   color: white;
   font-family: 'Balsamiq Sans', sans-serif;
@@ -77,36 +38,17 @@ body {
   width: 100%;
 }
 
-    /* body {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      margin: 0;
-      background-color: #f0f0f0;
-    }
-    
-    .button-container {
-      display: flex;
-      flex-wrap: wrap;
-      width: 200px;  
-      height: 200px; 
-    /* } */ 
 
     
     h1 {
       color: var(--highlight-color);
-
-      /* margin-bottom: 20px; */
       text-align: center;
       margin-top: 20px;
-      /* background-color: gray; */
     }
 
 
 h3 {
   color: black;
-  /* margin-bottom: 20px; */
   text-align: center;
   margin-top: 100px;
   margin-bottom: 50px;
@@ -138,7 +80,6 @@ h2{
       align-items: center;
       height: 100vh;
       gap: 20px;
-      /* background-color: black; */
     }
 
 
@@ -152,13 +93,7 @@ opacity: 0.8;
 gap: 20px;
 }
 
-/* .but {
-  width: 20px;
-  height: 20px;
-  border-radius: 15px;
-  cursor: pointer;
-  opacity: 0.8;
-} */
+
 
 
 .butt{
@@ -169,14 +104,8 @@ gap: 20px;
   border-radius: 5px;
   text-align: center;
   display: flex;
-  /* background-color: #007bff; */
-  /* color: white; */
-  /* margin: 100px; */
-  /* margin-right: 50px;*/
   transition: background-color 0.3s; 
   text-align: center;
-  /* margin-top: 10px; */
-  /* display: inline-block; */
   border-radius: 8px;
 }
 
