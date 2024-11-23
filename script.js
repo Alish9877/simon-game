@@ -93,7 +93,7 @@ const handleClick = (event) => {
 
 const endGame = () => {
   isGameActive = false
-  alert(`Game Over! Your score: ${score}`)
+  // alert(`Game Over! Your score: ${score}`)
 }
 
 redButton.addEventListener('click', handleClick)
